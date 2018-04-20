@@ -1,0 +1,6 @@
+.idea/
+.oauth-*.json
+.config.json
+node_modules/
+yarn-error.log
+heartbeat.log

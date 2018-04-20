@@ -1,0 +1,6 @@
+{
+  "endpoint": "https://example.com/api/heartbeat",
+  "sentry" : {
+    "dsn": "https://xxx@sentry.io/xxx"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "basic-oauth2": "git+https://github.com/aaronheath/basic-oauth2.git",
+    "diskusage": "^0.2.4",
+    "git-repo-info": "^2.0.0",
+    "raven": "^2.5.0",
+    "winston": "^2.4.1"
+  }
+}
