@@ -10,6 +10,8 @@ const bo = require('basic-oauth2');
 const getRepoInfo = require('git-repo-info');
 const diskusage = require('diskusage');
 
+let logger;
+
 function init() {
     initLogs();
     log('Starting Heartbeat');
@@ -27,14 +29,18 @@ function hostDir() {
 }
 
 function initLogs() {
-    winston.add(winston.transports.File, {filename: `${hostDir()}/heartbeat.log`});
-    winston.remove(winston.transports.Console);
+    logger = winston.createLogger({
+        level: 'info',
+        transports: [
+            new winston.transports.File({ filename: `${hostDir()}/heartbeat.log` })
+        ]
+    });
 }
 
 function log(msg, level = 'info') {
     const parsedMsg = typeof msg === 'object' ? util.inspect(msg) : msg;
 
-    winston.log(level, parsedMsg);
+    logger.log(level, parsedMsg);
 }
 
 function loadConfig() {
